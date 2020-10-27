@@ -10,12 +10,18 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Orientation="Vertical">
             <TextBlock>Tätigkeiten der Mitarbeiters</TextBlock>
             <TextBlock Foreground="DarkGreen" Text="{Binding FullName}"></TextBlock>
         </StackPanel>
-        <DataGrid Grid.Row="1" ItemsSource="{Binding Activities}" AutoGenerateColumns="False">
+        <DataGrid Grid.Row="1" Grid.ColumnSpan="3" ItemsSource="{Binding Activities}" AutoGenerateColumns="False">
             <DataGrid.Columns>
                 <DataGridTemplateColumn Header="Datum" MinWidth="110">
                     <DataGridTemplateColumn.CellEditingTemplate>
@@ -38,5 +44,8 @@
                     StringFormat=HH:mm, UpdateSourceTrigger=LostFocus}" />
             </DataGrid.Columns>
         </DataGrid>
+        <Button Grid.Row="2" Grid.Column="0" Command="{Binding CmdEditActivities}">Neu</Button>
+        <Button Grid.Row="2" Grid.Column="1" Command="{Binding CmdEditActivities}">Bearbeiten</Button>
+        <Button Grid.Row="2" Grid.Column="2" Command="{Binding CmdEditActivities}">Löschen</Button>
     </Grid>
 </Window>
