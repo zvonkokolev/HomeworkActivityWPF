@@ -179,6 +179,7 @@ namespace ActReport.ViewModel
 					  },
 					  canExecute: _ => _employee.Id != 0);
 				}
+
 				return _cmdDeleteActivity;
 			}
 			set { _cmdDeleteActivity = value; }
