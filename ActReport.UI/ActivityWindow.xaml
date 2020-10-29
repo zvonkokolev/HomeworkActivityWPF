@@ -41,7 +41,7 @@
                 <DataGridTextColumn Header="Bis" MinWidth="60" Binding="{Binding Path=EndTime,
                     StringFormat=HH:mm, UpdateSourceTrigger=LostFocus}" />
                 <DataGridTextColumn Header="Tätigkeit" MinWidth="200" Binding="{Binding Path=ActivityText,
-                    StringFormat=HH:mm, UpdateSourceTrigger=LostFocus}" />
+                    UpdateSourceTrigger=LostFocus}" />
             </DataGrid.Columns>
         </DataGrid>
         

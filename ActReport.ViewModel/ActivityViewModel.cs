@@ -116,24 +116,19 @@ namespace ActReport.ViewModel
 		{
 			get
 			{
-				Activity activity = new Activity();
-
 				if (_cmdNewActivity == null)
 				{
 					_cmdNewActivity = new RelayCommand(
 					  execute: _ =>
 					  {
-						  using IUnitOfWork uow = new UnitOfWork();
-
-						  activity.Date = Date;
-						  activity.StartTime = StartTime;
-						  activity.EndTime = EndTime;
-						  activity.ActivityText = ActivityText;
 						  
+						  Activity activity = Activities.LastOrDefault();
+						  activity.Employee_Id = _employee.Id;
+						  using IUnitOfWork uow = new UnitOfWork();
 						  uow.ActivityRepository.Insert(activity);
 						  uow.Save();
 					  },
-					  canExecute: _ => activity != null);
+					  canExecute: _ => _employee.Id > 0);
 				}
 				return _cmdNewActivity;
 			}
@@ -145,9 +140,9 @@ namespace ActReport.ViewModel
 		{
 			get
 			{
-				if (_cmdNewActivity == null)
+				if (_cmdEditActivity == null)
 				{
-					_cmdNewActivity = new RelayCommand(
+					_cmdEditActivity = new RelayCommand(
 					  execute: _ =>
 					  {
 						  using IUnitOfWork uow = new UnitOfWork();
@@ -172,22 +167,17 @@ namespace ActReport.ViewModel
 		{
 			get
 			{
-				if (_cmdNewActivity == null)
+				if (_cmdDeleteActivity == null)
 				{
-					_cmdNewActivity = new RelayCommand(
+					_cmdDeleteActivity = new RelayCommand(
 					  execute: _ =>
 					  {
+						  Activity activity = Activities.LastOrDefault();
 						  using IUnitOfWork uow = new UnitOfWork();
-
-						  //_selectedActivity.Date = Date;
-						  //_selectedActivity.StartTime = StartTime;
-						  //_selectedActivity.EndTime = EndTime;
-						  //_selectedActivity.ActivityText = ActivityText;
-
-						  uow.ActivityRepository.Delete(_selectedActivity);
+						  uow.ActivityRepository.Delete(activity);
 						  uow.Save();
 					  },
-					  canExecute: _ => _selectedActivity != null);
+					  canExecute: _ => _employee.Id != 0);
 				}
 				return _cmdDeleteActivity;
 			}
