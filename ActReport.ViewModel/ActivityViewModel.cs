@@ -32,7 +32,7 @@ namespace ActReport.ViewModel
 			}
 		}
 
-		public DateTime StartTime 
+		public DateTime StartTime
 		{
 			get => _startTime;
 			set
@@ -42,7 +42,7 @@ namespace ActReport.ViewModel
 			}
 		}
 
-		public DateTime EndTime 
+		public DateTime EndTime
 		{
 			get => _endTime;
 			set
@@ -52,7 +52,7 @@ namespace ActReport.ViewModel
 			}
 		}
 
-		public string ActivityText 
+		public string ActivityText
 		{
 			get => _activityText;
 			set
@@ -72,7 +72,7 @@ namespace ActReport.ViewModel
 			}
 		}
 
-		public Activity SelectedActivity 
+		public Activity SelectedActivity
 		{
 			get => _selectedActivity;
 			set
@@ -117,6 +117,7 @@ namespace ActReport.ViewModel
 			get
 			{
 				Activity activity = new Activity();
+
 				if (_cmdNewActivity == null)
 				{
 					_cmdNewActivity = new RelayCommand(
@@ -128,7 +129,7 @@ namespace ActReport.ViewModel
 						  activity.StartTime = StartTime;
 						  activity.EndTime = EndTime;
 						  activity.ActivityText = ActivityText;
-
+						  
 						  uow.ActivityRepository.Insert(activity);
 						  uow.Save();
 					  },
