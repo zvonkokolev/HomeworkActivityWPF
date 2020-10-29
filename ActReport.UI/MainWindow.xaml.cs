@@ -12,5 +12,11 @@ namespace ActReport.UI
         {
             InitializeComponent();
         }
-    }
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+         Window window = Window.GetWindow(this);
+         window.Close();
+		}
+	}
 }

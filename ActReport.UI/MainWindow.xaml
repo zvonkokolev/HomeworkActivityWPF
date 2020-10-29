@@ -35,7 +35,7 @@
             </ListView.View>
         </ListView>
         <Button Grid.Row="3" Command="{Binding CmdEditActivities}">Tätigkeiten bearbeiten</Button>
-        <Button Grid.Row="4" Command="{Binding CmdEditActivities}">Fenster schliessen</Button>
+        <Button Grid.Row="4" Click="Button_Click">Fenster schliessen</Button>
     </Grid>
 </Window>
 
