@@ -44,8 +44,10 @@
                     StringFormat=HH:mm, UpdateSourceTrigger=LostFocus}" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button Grid.Row="2" Grid.Column="0" Command="{Binding CmdEditActivities}">Neu</Button>
-        <Button Grid.Row="2" Grid.Column="1" Command="{Binding CmdEditActivities}">Bearbeiten</Button>
-        <Button Grid.Row="2" Grid.Column="2" Command="{Binding CmdEditActivities}">Löschen</Button>
+        
+        <Button Grid.Row="2" Grid.Column="0" Command="{Binding CmdNewActivity}">Neu</Button>
+        <Button Grid.Row="2" Grid.Column="1" Command="{Binding CmdEditActivity}">Bearbeiten</Button>
+        <Button Grid.Row="2" Grid.Column="2" Command="{Binding CmdDeleteActivity}">Löschen</Button>
+        
     </Grid>
 </Window>
